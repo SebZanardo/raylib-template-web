@@ -20,9 +20,7 @@ emcc -o web/game.html src/main.c -Os -Wall $HOME/raylib/src/web/libraylib.web.a 
 -s INITIAL_MEMORY=128MB \
 -DPLATFORM_WEB
 
-# Exit the script if the last command was unsuccessful
-if [ $? -ne 0 ]; then
-	return 1
+# Run the web build if it build successfully
+if [ $? -eq 0 ]; then
+	emrun web/game.html
 fi
-
-emrun web/game.html
