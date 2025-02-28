@@ -12,13 +12,13 @@ mkdir -p web
 # Can remove -s ASYNCIFY if there is no while(!WindowShouldClose()) loop
 # --preload-file src/resources must be added if you want to load assets
 emcc -o web/game.html src/main.c -Os -Wall $HOME/raylib/src/web/libraylib.web.a \
--I. -I$HOME/raylib/src -L. -L$HOME/raylib/src/web \
--s USE_GLFW=3 \
--s ASYNCIFY \
---shell-file $HOME/raylib/src/minshell.html \
--s TOTAL_STACK=64MB \
--s INITIAL_MEMORY=128MB \
--DPLATFORM_WEB
+	-I. -I$HOME/raylib/src -L. -L$HOME/raylib/src/web \
+	-s USE_GLFW=3 \
+	-s ASYNCIFY \
+	--shell-file $HOME/raylib/src/minshell.html \
+	-s TOTAL_STACK=64MB \
+	-s INITIAL_MEMORY=128MB \
+	-DPLATFORM_WEB
 
 # Run the web build if it build successfully
 if [ $? -eq 0 ]; then
