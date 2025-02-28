@@ -1,3 +1,8 @@
+# Source emsdk for this terminal session if last command failed
+if [ -z "$EMSDK" ]; then
+	source $HOME/emsdk/emsdk_env.sh
+fi
+
 # Try make web directory if doesn't exist
 mkdir -p web
 
